@@ -76,25 +76,34 @@
             </article>
             <article class="section4">
                 <h2 class="section4__title">Join the Conversation</h2>
+                
                 <div class="section4__new-comment">
                     <img class="user__picture user__picture1" src="./assets/Images/Mohan-muruge.jpg" alt="User Picture">
 <!--FORM-->                    
                     <form id=form action="#" class="form">
-                        <ul id="commentList"class="form__list">
+                        <input type="text" id="user" name="user" required="true" placeholder="Enter your name"/>
+                        
+                        <input type="text" id="commentText" name="commentText" required="true" placeholder="Add a new comment" />
+                        <button type="submit">Submit</button>
+
+                        <!-- <ul class="form__list">
                             <li>
-                                <label class="form__label">NAME <input class="form__input form__name" type="text"
+                                <label class="form__label" >NAME <input required="true" name="user"class="form__input form__name" type="text"
                                         placeholder="Enter your name"></label>
                             </li>
                             <li class="form__item-2">
-                                <label class="form__label">COMMENT<textarea class="form__input form__comment"
+                                <label class="form__label">COMMENT<textarea class="form__input form__comment" required="true" name="commentText"
                                         placeholder="Add a new comment"></textarea></label>
+                                        
+                                        <button class="form__button">COMMENT</button>
                             </li>
-                        </ul>
-                    </form>
+                        </ul> -->
                 </div>
-                <button class="form__button">COMMENT</button>
+                   </form>
+
+
                 <hr class="line">
-                <div class="comment__container">
+                <div id="commentList"class="comment__container">
                     <div class="comment__box">
                         <p class="user__picture user__picture2"></p>
                         <div class="user__form">
