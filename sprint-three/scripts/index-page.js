@@ -82,18 +82,19 @@ const getComments = () => {
         .get(`${apiUrl}/comments?api_key=${apiKey}`)
         .then((response) => {
             const commentsArray = response.data;
-            commentsArray.forEach((record) => {
-                addComment(record.name, record.comment, record.likes, record.timestamp);
+            commentsArray.forEach((comment) => {
+                addComment(comment);
             });
         })
         .catch((error) => console.log('error getting data comments:' + error));
 };
 
 //function to create each comment
-function addComment(name, comment, likes, dates) {
+function addComment(comment) {
     // create new elements
     const container = document.createElement('div');
     container.className = "comment__box";
+    container.id = comment.id;
     const image = document.createElement('p');
     image.className = "user__picture user__picture2";
 
@@ -105,9 +106,9 @@ function addComment(name, comment, likes, dates) {
 
     const userName = document.createElement('h3');
     userName.className = "user__name";
-    userName.innerText = name;
+    userName.innerText = comment.name;
 
-    const date = new Date(dates);
+    const date = new Date(comment.timestamp);
     const userDates = document.createElement('p');
     userDates.className = "user__date";
     userDates.innerText = date.toLocaleDateString();
@@ -118,12 +119,26 @@ function addComment(name, comment, likes, dates) {
 
     const userComment = document.createElement('p');
     userComment.className = "user__comment";
-    userComment.innerText = comment;
+    userComment.innerText = comment.comment;
 
     userForm.appendChild(userComment);
 
     container.appendChild(image);
     container.appendChild(userForm);
+
+    const commentLike = document.createElement('a');
+    commentLike.innerText = comment.likes;
+    commentLike.addEventListener("click", (event) => {
+        likeComment(event.target.parentNode.id);
+    });
+    container.appendChild(commentLike);
+
+    const commentDelete = document.createElement('button');
+    commentDelete.innerText = "Remove";
+    commentDelete.addEventListener("click", (event) => {
+        removeComment(event.target.parentNode.id);
+    });
+    container.appendChild(commentDelete);
 
     /*    const listEl = document.createElement('li');
         const userCommentEl = document.createElement('p');
@@ -140,12 +155,11 @@ function addComment(name, comment, likes, dates) {
         listEl.appendChild(userLikeEl);
 
         commentList.appendChild(listEl);*/
-    commentList.insertBefore(container, commentList.firstChild);
+    newcomments.insertBefore(container, newcomments.firstChild);
 
     const divider = document.createElement('hr');
     divider.className = "line";
     container.appendChild(divider);
-
 }
 
 //submit the form and add the comment to the list
@@ -175,6 +189,25 @@ function handleSubmit(event) {
 
     //reset the form
     commentForm.reset();
+}
+
+//Like implementation for comments.
+function likeComment(id) {
+    console.log(id);
+    axios
+        .get(`${apiUrl}/comments?api_key=${apiKey}`)
+        .then((response) => {
+            const commentsArray = response.data;
+            commentsArray.forEach((comment) => {
+                addComment(comment);
+            });
+        })
+        .catch((error) => console.log('error getting data comments:' + error));
+}
+
+//Remove comment.
+function removeComment(id) {
+    console.log(id);
 }
 
 //initial call to get comments  when first loaded.
