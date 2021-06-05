@@ -1,202 +1,154 @@
 main {
-  color: #323232;
-}
+  color: #323232; }
 
 a {
   text-decoration: none;
-  cursor: pointer;
-}
-a:active {
-  color: #ffffff;
-  font-weight: bolder;
-}
-a:hover {
-  color: #000000;
-}
-a:disabled {
-  color: #AFAFAF;
-}
+  cursor: pointer; }
+  a:active {
+    color: #ffffff;
+    font-weight: bolder; }
+  a:hover {
+    color: #000000; }
+  a:disabled {
+    color: #AFAFAF; }
 
 article, footer {
   padding-top: 24px;
   padding-left: 16px;
-  padding-right: 16px;
-}
+  padding-right: 16px; }
 
 h2, h3 {
-  margin: 0 0 16px 0;
-}
+  margin: 0 0 16px 0; }
 
 span {
-  display: block;
-}
+  display: block; }
 
 p:last-child {
   margin: 0;
-  padding-bottom: 16px;
-}
+  padding-bottom: 16px; }
 
 .logo {
   margin: 4% auto;
   max-height: 20px;
-  max-width: 120px;
-}
+  max-width: 120px; }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background-color: #323232;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin: 0;
   width: 100vw;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.header::after {
-  width: 50%;
-  content: "";
-  border-bottom: 5px solid #ffffff;
-}
-.header__link {
-  color: #ffffff;
-  font-size: 14px;
-  line-height: 22px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Demi.otf");
-  font-weight: 600;
-}
-.header__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-.header__nav__title {
-  margin-bottom: 2%;
-}
+  height: fit-content; }
+  .header::after {
+    width: 50%;
+    content: "";
+    border-bottom: 5px solid #ffffff; }
+  .header__link {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Demi.otf");
+    font-weight: 600; }
+  .header__nav {
+    display: flex;
+    justify-content: space-around; }
+    .header__nav__title {
+      margin-bottom: 2%; }
 
 #linkShows:link {
-  color: #E1E1E1;
-}
+  color: #E1E1E1; }
 
 .section1 {
   padding: 0;
   height: 50%;
   width: auto;
-  position: relative;
-}
-.section1__image {
-  height: 100%;
-  width: 100vw;
-  opacity: 50%;
-}
-.section1__title {
-  top: 42%;
-  left: 5%;
-  margin: 0px;
-  color: #ffffff;
-  position: absolute;
-  z-index: 1;
-  font-size: 24px;
-  line-height: 32px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Bold.otf");
-  font-weight: 700;
-}
+  position: relative; }
+  .section1__image {
+    height: 100%;
+    width: 100vw;
+    opacity: 50%; }
+  .section1__title {
+    top: 42%;
+    left: 5%;
+    margin: 0px;
+    color: #ffffff;
+    position: absolute;
+    z-index: 1;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Bold.otf");
+    font-weight: 700; }
 
 .section2__title {
   font-size: 24px;
   line-height: 32px;
   font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Bold.otf");
-  font-weight: 700;
-}
+  font-weight: 700; }
 .section2__image {
-  width: 100%;
-}
+  width: 100%; }
 .section2__text {
   font-size: 14px;
   line-height: 22px;
   font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Demi.otf");
-  font-weight: 600;
-}
+  font-weight: 600; }
 
 .section3 {
-  margin: 0 auto;
-}
-.section3__title {
-  font-size: 14px;
-  line-height: 22px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Demi.otf");
-  font-weight: 600;
-}
-.section3__paragraph1 {
-  font-size: 13px;
-  line-height: 18px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Regular.otf");
-  font-weight: 400;
-}
-.section3__paragraph2 {
-  font-size: 13px;
-  line-height: 18px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Regular.otf");
-  font-weight: 400;
-}
+  margin: 0 auto; }
+  .section3__title {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Demi.otf");
+    font-weight: 600; }
+  .section3__paragraph1 {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Regular.otf");
+    font-weight: 400; }
+  .section3__paragraph2 {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Regular.otf");
+    font-weight: 400; }
 
 .section4 {
-  background-color: #E1E1E1;
-}
-.section4__title {
-  font-size: 24px;
-  line-height: 32px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Bold.otf");
-  font-weight: 700;
-}
-.section4 img {
-  width: 100%;
-  padding-bottom: 16px;
-}
+  background-color: #E1E1E1; }
+  .section4__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Bold.otf");
+    font-weight: 700; }
+  .section4 img {
+    width: 100%;
+    padding-bottom: 16px; }
 
 .footer {
   background-color: #323232;
-  color: #ffffff;
-}
-.footer p {
-  margin: 0;
-  padding-bottom: 16px;
-  font-size: 13px;
-  line-height: 18px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Regular.otf");
-  font-weight: 400;
-}
-.footer a {
-  color: #ffffff;
-}
-.footer__title {
-  margin-bottom: 0;
-  font-size: 24px;
-  line-height: 32px;
-  font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Bold.otf");
-  font-weight: 700;
-}
-.footer__text {
-  padding-bottom: 9%;
-}
+  color: #ffffff; }
+  .footer p {
+    margin: 0;
+    padding-bottom: 16px;
+    font-size: 13px;
+    line-height: 18px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Regular.otf");
+    font-weight: 400; }
+  .footer a {
+    color: #ffffff; }
+  .footer__title {
+    margin-bottom: 0;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: url("/sprint-one/assets/Font/AvenirNextLTPro-Bold.otf");
+    font-weight: 700; }
+  .footer__text {
+    padding-bottom: 9%; }
 
 .strong-text {
-  font-weight: bolder;
-}
+  font-weight: bolder; }
 
 .icons {
   padding: 16px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 40%;
-}/*# sourceMappingURL=style.css.map */
+  justify-content: space-between;
+  width: 40%; }
+
+/*# sourceMappingURL=style.css.map */

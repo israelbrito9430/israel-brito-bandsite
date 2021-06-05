@@ -1,6 +1,6 @@
 const formButton = document.querySelector(".form__button");
 
-function captureValues() {
+function captureValues(event) {
   event.preventDefault();
 
   const commentContainer = document.querySelector(".comment__container");
@@ -52,28 +52,30 @@ function captureValues() {
   const form = document.querySelector(".form");
   form.reset();
 }
-//add an event listener to the form submission
-formButton.addEventListener("click", captureValues);
+
 
 
 
 //Sprint 3
 
-console.log ("Hello you");
+console.log("Still alive");
 const apiUrl = 'https://project-1-api.herokuapp.com';
 
 const newcomments = document.getElementById('commentList');
 const commentForm = document.getElementById('form');
 
+//add an event listener to the form submission
+commentForm.addEventListener("submit", handleSubmit);
+
 //function to get apikey
 const apiKey = () => {
-axios
-.get(`${apiUrl}/register`)
-.then((response)=> {
-  const apiKey =  response.data.api_key
-  console.log(apiKey);
-})
-  .catch((error) => console.log('error getting apikey'));
+  axios
+    .get(`${apiUrl}/register`)
+    .then((response) => {
+      const apiKey = response.data.api_key
+      console.log(apiKey);
+    })
+    .catch((error) => console.log('error getting apikey'));
 };
 
 
@@ -101,11 +103,47 @@ const getComments = () => {
         listEl.appendChild(userNameEl);
         listEl.appendChild(userCommentEl);
         listEl.appendChild(userLikeEl);
-      
+
         commentList.appendChild(listEl);
       });
     })
     .catch((error) => console.log('error getting data comments'));
 };
 
+//submit the form and add the comment to the list
+function handleSubmit(event) {
+  event.preventDefault();
+  const user = event.target.user.value;
+  const commentText = event.target.commentText.value;
+  const newComment = {
+    name: user, // => name: user
+    comment: commentText // => commentText: commentText
+  };
+  axios
+    .post(`${apiUrl}/comments?api_key=${apiKey}`, newComment, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+    )
+
+    .then((response) => {
+      console.log('HTTP STATUS CODE: ', response.status);
+      //after comment has posted, getComments again.
+      getComments();
+    })
+    .catch((error) => console.log(error));
+
+  //reset the form
+  commentForm.reset();
+}
+
+
+
+
+
+
+
+
+//initial call to get comments  when first loaded.
 getComments();

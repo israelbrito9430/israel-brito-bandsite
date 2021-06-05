@@ -312,7 +312,7 @@ article {
 
     .section3 {
         @include padding-top(768px);
-        padding-bottom: 3%;
+        padding-bottom: 5.6em;
         
         &__title {
             margin: 0 3%;
@@ -321,14 +321,16 @@ article {
         
         &__gallery {
             margin: 0 auto;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
+            text-align: center;
+            @include padding(768px);
+
         }
         
         &__img {
-            width: 21.7em;
+            padding: 1% 1% 0.5%;
+            width: 30%;
+            display: inline-block;
+            text-align: center;
         }
     }
 
@@ -404,9 +406,9 @@ article {
     @include desktop-global;
 
     .header {
-        height: 60em;
+        height: 72em;
         &__image, .header__overlay, .header__title {
-            height: 60em;
+            height: 72em;
         }
 
         &__title {
@@ -423,7 +425,7 @@ article {
       }
   
       &__image {
-        height: 50em;
+        height: unset;
       }
   
       &__text {
@@ -439,16 +441,8 @@ article {
     }
   
     .section3 {
-        width: 100%;
-        padding: 48px 10% 36px 10%;
-
         &__title {
             padding: 0 0 3% 0;
-        }
-
-        &__img {
-            width: 40em;
-            justify-content: space-between;
         }
     }
 
