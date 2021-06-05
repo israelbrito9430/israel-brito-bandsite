@@ -1,111 +1,97 @@
-const showsSection = document.querySelector(".shows__section");
+const showsList = document.querySelector(".shows__list");
 
-const shows = [
-  {
-    dates: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA"
-  },
-  {
-    dates: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA"
-  },
-  {
-    dates: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA"
-  },
-  {
-    dates: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA"
-  },
-  {
-    dates: "Fri nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA"
-  },
-  {
-    dates: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA"
-  }
-];
+const apiUrl = 'https://project-1-api.herokuapp.com';
+
+//function to get apikey
+const apiKey = () => {
+    axios
+        .get(`${apiUrl}/register`)
+        .then((response) => {
+            const apiKey = response.data.api_key
+            console.log(apiKey);
+        })
+        .catch((error) => console.log('error getting apikey:' + error));
+};
+
+//function to load shows from API
+const loadShows = () => {
+    axios
+        .get(`${apiUrl}/showdates?api_key=${apiKey}`)
+        .then((response) => {
+            console.log(response);
+            if (response.status === 200) {
+                addShowsLabels();
+                response.data.forEach((record, index) => {
+                    const show = {
+                        "date": new Date(parseInt(record.date)).toLocaleDateString(),
+                        "venue": record.place,
+                        "location": record.location
+                    };
+                    addShow(show, index + 1);
+                });
+            }
+        })
+        .catch((error) => console.log('error getting shows data:' + error));
+}
 
 function onLoad(event) {
+    loadShows();
+}
 
-  if (screen.width < 768) {
-    shows.forEach((data, index) => {
+//function to add shows titles (for tablet & desktop).
+function addShowsLabels() {
+    const labelsGroup = document.createElement("div");
+    labelsGroup.className = "shows__group visible_for_desktop";
+    labelsGroup.appendChild(createShowTitleElement("Date"));
+    labelsGroup.appendChild(createShowTitleElement("Venue"));
+    labelsGroup.appendChild(createShowTitleElement("Location"));
+    showsList.insertBefore(labelsGroup, showsList.firstChild);
+}
 
-      const showDiv = document.createElement("div");
-      Object.entries(data).forEach(entry => {
-        const [title, value] = entry;
-
-        const titleElement = document.createElement("label");
+//function to create a title element.
+function createShowTitleElement(title, className) {
+    const titleElement = document.createElement("label");
+    if (className !== undefined) {
+        titleElement.className = "shows__titles " + className;
+    } else {
         titleElement.className = "shows__titles";
-        titleElement.innerText = title;
+    }
+    titleElement.innerText = title;
+    return titleElement;
+}
 
-        const valueElement = document.createElement("p");
-        valueElement.className = "shows__value";
-        valueElement.innerText = value;
+//function to get a show value element.
+function createShowValueElement(value) {
+    const valueElement = document.createElement("p");
+    valueElement.className = "shows__value";
+    valueElement.innerText = value;
+    return valueElement;
+}
 
-        showDiv.appendChild(titleElement);
-        showDiv.appendChild(valueElement);
-      });
-
-      const buttonElement = document.createElement("button");
-      buttonElement.className = "shows__button";
-      buttonElement.innerText = "BUY TICKETS";
-      buttonElement.onclick = function () {
-        console.log("Button" + index + "Clicked!");
-      }
-      const lineElement = document.createElement("hr");
-      lineElement.className = "line";
-
-      showDiv.appendChild(buttonElement);
-      showDiv.appendChild(lineElement);
-      showsSection.appendChild(showDiv);
-    })
-  } else {
-    const showsList = document.querySelector(".shows__list");
-    const titlesDiv = document.createElement("div");
-
-    Object.keys(shows[0]).forEach(title => {
-      const titleElement = document.createElement("label");
-      titleElement.className = "shows__titles";
-      titleElement.innerText = title;
-      titlesDiv.className = "shows__group";
-      titlesDiv.appendChild(titleElement);
-    });
-    showsList.appendChild(titlesDiv);
-
-    shows.forEach((data, index) => {
-      const showDiv = document.createElement("div");
-
-      Object.entries(data).forEach(entry => {
-        const valueElement = document.createElement("p");
-        valueElement.className = "shows__value";
-        valueElement.innerText = entry[1];
-
-        showDiv.appendChild(valueElement);
+//function to create each show.
+function addShow(show, index) {
+    if (show !== undefined) {
+        const showDiv = document.createElement("div");
         showDiv.className = "shows__group";
-        showsList.appendChild(showDiv);
-      });
 
-      const buttonElement = document.createElement("button");
-      buttonElement.className = "shows__button";
-      buttonElement.innerText = "BUY TICKETS";
-      buttonElement.onclick = function () {
-        console.log("Button" + index + "Clicked!");
-      }
-      const lineElement = document.createElement("hr");
-      lineElement.className = "line";
+        Object.entries(show).forEach(entry => {
+            showDiv.appendChild(createShowTitleElement(entry[0], "visible_for_mobile"));
+            showDiv.appendChild(createShowValueElement(entry[1]));
+            showsList.appendChild(showDiv);
+        });
 
-      showDiv.appendChild(buttonElement);
-      showsList.appendChild(lineElement);
-    });
-  }
+        const buttonElement = document.createElement("button");
+        buttonElement.className = "shows__button";
+        buttonElement.innerText = "BUY TICKETS";
+        buttonElement.onclick = function () {
+            console.log("Button " + index + " has been Clicked!");
+        }
+        const lineElement = document.createElement("hr");
+        lineElement.className = "line";
+
+        showDiv.appendChild(buttonElement);
+        showsList.appendChild(lineElement);
+    }
 }
 
 window.addEventListener("load", onLoad);

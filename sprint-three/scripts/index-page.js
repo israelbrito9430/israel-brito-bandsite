@@ -7,7 +7,7 @@ function captureValues(event) {
   const firstChildContainer = commentContainer.firstChild;
   const userPicture = document.querySelector(".section4_user_picture").src;
   const formName = document.querySelector(".section4_form_name").value;
-  const formComment = document.querySelector(".fsection4_orm_comment").value;
+  const formComment = document.querySelector(".fsection4_form_comment").value;
 
   const commentBox = document.createElement("div");
   const userForm = document.createElement("div");
