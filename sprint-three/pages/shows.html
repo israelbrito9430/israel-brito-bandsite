@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../styles/shows.css">
     <link rel="stylesheet" href="../styles/normalize.css">
     <title>Shows</title>
@@ -25,7 +26,7 @@
         <div class="header__text">
             <div class="header__titles">
                 <h3 class="header__title">Beatiful Beasts Album</h3>
-                <h2 class="header__title header__title-2">Queen of Yellow x For The Stings</h2>
+                <h2 class="header__title header__title--2">Queen of Yellow x For The Stings</h2>
             </div>
             <div class="header__iframe"><iframe width="100%" height="115px" scrolling="no" frameborder="no"
                     allow="autoplay"
@@ -42,36 +43,42 @@
         <div class="shows__list"></div>
     </section>
     <footer class="footer">
-        <h2 class="footer__title">Get in Touch</h2>
-        <div class="icons">
-            <a class="footer__links" href="https://www.instagram.com/"><img src="../assets/Icons/SVG/Icon-instagram.svg"
-                    alt="Instagram"></a>
-            <a class="footer__links" href="https://www.facebook.com/"><img src="../assets/Icons/SVG/Icon-facebook.svg"
-                    alt="Facebook"></a>
-            <a class="footer__links" href="https://twitter.com/"><img src="../assets/Icons/SVG/Icon-twitter.svg"
-                    alt="Twitter"></a>
+        <div class="footer__social-network">
+            <h2 class="footer__title">Get in Touch</h2>
+            <div class="footer__icons">
+                <a class="footer__links" href="https://www.instagram.com/"><img
+                        src="../assets/Icons/SVG/Icon-instagram.svg" alt="Instagram"></a>
+                <a class="footer__links" href="https://www.facebook.com/"><img
+                        src="../assets/Icons/SVG/Icon-facebook.svg" alt="Facebook"></a>
+                <a class="footer__links" href="https://twitter.com/"><img src="../assets/Icons/SVG/Icon-twitter.svg"
+                        alt="Twitter"></a>
+            </div>
         </div>
         <div class="footer__text">
             <div class="footer__info">
-                <p class="strong-text">Cam Adams <span class="strong-text">The Bees Knees Management</span></p>
+                <p class="footer--strong-text">Cam Adams <span class="footer--strong-text">The Bees Knees
+                        Management</span></p>
                 <p>503 Broadway Penthouse, <span>New York, NY 10012, USA</span></p>
                 <p><a class="footer__links" href="mailto:info@thebeesknees.com">info@thebeesknees.com</a></p>
             </div>
             <div class="footer__info">
-                <p>Pearl Gregg<span>Limitless Artist Group</span></p>
+                <p class="footer--strong-text">Pearl Gregg<span class="footer--strong-text">Limitless Artist
+                        Group</span></p>
                 <p>Booking Agent for<span>US / South America / Japan</span></p>
                 <p><a class="footer__links" href="mailto:pearl.gregg@limitlessag.com">pearl.gregg@limitlessag.com</a>
                 </p>
             </div>
             <div class="footer__info">
-                <p>Carson Whyte<span>ARCH Entertainment</span></p>
+                <p class="footer--strong-text">Carson Whyte<span class="footer--strong-text">ARCH Entertainment</span>
+                </p>
                 <p>Booking Agent for<span>UK / EU / AU</span></p>
                 <p><a class="footer__links" href="mailto:cwhyte@archentertainment.com">cwhyte@archentertainment.com</a>
                 </p>
             </div>
         </div>
-        <img class="footer__logo" src="../assets/Logo/Logo-bandsite.svg" alt="Logo-Footer">
-        <p>Copyright The Bees Knees © 2021 All Rights Reserved</p>
+        <a class="footer__logo" href="../index.html"><img class="logo" src="../assets/Logo/Logo-bandsite.svg"
+                alt="Logo-bandsite"></a>
+        <p class="footer__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
     </footer>
     <script src="../scripts/build-shows-page.js"></script>
 </body>

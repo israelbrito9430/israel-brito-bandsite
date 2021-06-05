@@ -5,7 +5,7 @@
   @include logo-size;
   
   &__link {
-    margin: 3% 5%;
+    margin: 4%;
   }
 }
 
@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   background-color: $primary-color-1;
+  text-align: center;
 
   &__link {
     @include link-style;
@@ -46,7 +47,7 @@
   background-color:$primary-color-1;
   color: $primary-color-3;
 
-  & a {
+  &__links {
     @include link-style;
   }
 
@@ -60,35 +61,26 @@
       margin: 2% 0 0 0;
       font-weight: normal;
   }
-
-  &__text {
-      padding-bottom: 9%;
-  }
   
   &__info {
     margin-bottom: 6%;
   }
 
-  &__logo {
-    margin-top: 15%;
-  }
-
   &__copyright {
-    margin-top: 0;
+    margin: 4% 0 1% 0;
+  }
+
+  &--strong-text{
+    font-weight: bolder;
+  }
+
+  &__icons{
+    margin-bottom: 7%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
   }
 }
-
-.strong-text{
-  font-weight: bolder;
-}
-
-.icons{
-  margin-bottom: 7%;
-  width: 40%;
-  display: flex;
-  justify-content: space-between;
-}
-
 
 // Special classes for active section 
 
@@ -130,10 +122,6 @@
     html {
       @include tablet-desktop-fonts;
     }
-
-    .logo {
-      margin: 4%;
-    }
     
     .nav {
       max-height: 7em;
@@ -156,7 +144,7 @@
       }
     }
 
-    .link-inactive, .link-active {
+    .link--inactive, .link--active {
       margin: auto;
     }
     
@@ -164,9 +152,11 @@
       @include padding(768px);
       @include padding-top(768px);
       position: relative;
+      display: flex;
+      flex-direction: column;
       
       &__title {
-          margin: 0 5% 0 0;
+          margin: 0;
           line-height: 1em;
           font-size: 2.7em;
           width: fit-content;
@@ -174,29 +164,39 @@
       }
       
       &__text {
-          margin-top:2%;
-          padding-bottom: 0;
-          display: flex;
-          font-size: 0.8em;
-          justify-content: space-between;
+        margin-top:2%;
+        padding-bottom: 0;
+        display: flex;
+        font-size: 0.8em;
       }
       
       &__logo {
-        top: 3.5em;
-        right: 1em;
+        top: 5.5em;
+        right: 3em;
         position: absolute;
       }
       
       &__copyright {
-          font-size: 1em;
+        font-size: 1em;
       }
-    }
+      
+      &__icons {
+        margin: 0 0 0 5%;
+        width: 25%;
+        display: inline-flex;
+        font-size: 1.7em;
+      }
 
-    .icons {
-      margin-bottom: 0;
-      width: 13%;
-      display: inline-flex;
-      font-size: 1.7em;
+      &__info {
+        margin-right: 7%;
+      }
+
+      &__social-network {
+        width: 50%;
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+      }
     }
   }
 }
@@ -215,17 +215,10 @@
     }
 
     .footer {
-      &__title {
-          margin: 0px 12% 0 0;
-      }
+      padding: 4% 4% 2% 4%;
 
-      &__text {
-          width: 69%;
-      }
-
-      &__logo {
-        top: 2em;
-        right: 3.5em;
+      &__icons {
+        margin: 0 0 0 15%;
       }
     }
   }

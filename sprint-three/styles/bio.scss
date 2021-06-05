@@ -18,12 +18,6 @@ article {
 
 // Style are being applied from class
 
-.logo{
-    margin: 4% auto;
-    max-height: 20px;
-    max-width: 120px;
-}
-
 .header {
     height: 18.5em;
     width: auto;
@@ -125,125 +119,126 @@ article {
         margin: 0;
         display: flex;
     }
-}
 
-.form {
-    margin: 0;
-    padding: 0;
-    display: flex;
-
-    &__list {
-        margin-top: 8%;
-        padding-left: 5%;
-        list-style: none;
-    }
-    
-    &__label {
-        margin-top: 3%;
+    &__form {
+        margin: 0;
+        padding: 0;
         display: flex;
-        flex-direction: column;
-        color: $primary-color-2; // color: $secondary-color-2; Este es el color según la guía, pero se utiliza el color primario para dar mayor proximidad al mockup
-    }
+    
+        &__list {
+            margin-top: 8%;
+            padding-left: 5%;
+            list-style: none;
+        }
         
-    &__item-2 {
-        margin-top: 2em;
-    }
-
-    &__input {
-        font-size: 1.3em; // Aumento el valor en comparación a la guía para dar proximidad al mockup
-        margin-top: 4px;
-        padding: 0.7em; // Según la guía es 1.2em, se cambia por similitud al mockup
-        //height: inherit;
-        //min-height: 3.6em; No se aplica para lograr similitud al mockup
-        width: 60vw;
-        border: 1px solid $secondary-color-2;
-        border-radius: 4px;
-
-        &:active {
-            border-color: $primary-color-1;
+        &__label {
+            margin-top: 3%;
+            display: flex;
+            flex-direction: column;
+            color: $primary-color-2; // color: $secondary-color-2; Este es el color según la guía, pero se utiliza el color primario para dar mayor proximidad al mockup
+        }
+            
+        &__item-2 {
+            margin-top: 2em;
+        }
+    
+        &__input {
+            font-size: 1.3em; // Aumento el valor en comparación a la guía para dar proximidad al mockup
+            margin-top: 4px;
+            padding: 0.7em; // Según la guía es 1.2em, se cambia por similitud al mockup
+            //height: inherit;
+            //min-height: 3.6em; No se aplica para lograr similitud al mockup
+            width: 60vw;
+            border: 1px solid $secondary-color-2;
+            border-radius: 4px;
+    
+            &:active {
+                border-color: $primary-color-1;
+            }
+    
+            &:invalid {
+                border-color: #D22D2D;
+            }
+    
+        }
+    
+        &__comment {
+            min-height: 3.6em;
+            height: 6em;
+        }
+    
+        &__button {
+            margin-right: 3%;
+            width: 74%;
+            align-self: flex-end;
+            @include button;
+    
+            &:hover {
+                background-color: $secondary-color-1;
+            }
+        }
+    
+        &__input {
+            outline-color: $primary-color-1;
+            }
         }
 
-        &:invalid {
-            border-color: #D22D2D;
+        &__comment__box {
+            display: flex;
         }
-
-    }
-
-    &__comment {
-        min-height: 3.6em;
-        height: 6em;
-    }
-
-    &__button {
-        margin-right: 3%;
-        width: 74%;
-        align-self: flex-end;
-        @include button;
-
-        &:hover {
-            background-color: $secondary-color-1;
-        }
-    }
-
-    &__input {
-        outline-color: $primary-color-1;
+        
+        &__user {
+            &__picture {
+                margin: 14% 5% 0 0;
+                height: 3.6em;
+                width: 4em;
+                border-radius: 50%;
+                background-color: $secondary-color-2;
+            }
+        
+            &__form {
+                width: 90%;
+            }
+        
+            &__info {
+                margin: 0;
+                width: 98%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        
+            &__name {
+                margin: 1% 0 0.2em 0;
+                width: fit-content;
+            }
+        
+            &__date {
+                margin-bottom: 0.2em;
+                width: fit-content;
+                color: $primary-color-2;
+            }
+        
+            &__comment {
+                line-height: 1.5em; //Se modifica por mockup
+            }
+        
+            &__box {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+        
+            &__first-line {
+                display: flex;
+            }
         }
 }
+
 
 .line {
     @include line;
 } 
-
-.comment__box {
-    display: flex;
-}
-
-.user {
-    &__picture {
-        margin: 14% 5% 0 0;
-        height: 3.6em;
-        width: 4em;
-        border-radius: 50%;
-        background-color: $secondary-color-2;
-    }
-
-    &__form {
-        width: 90%;
-    }
-
-    &__info {
-        margin: 0;
-        width: 98%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &__name {
-        margin: 1% 0 0.2em 0;
-        width: fit-content;
-    }
-
-    &__date {
-        margin-bottom: 0.2em;
-        width: fit-content;
-        color: $primary-color-2;
-    }
-
-    &__comment {
-        line-height: 1.5em; //Se modifica por mockup
-    }
-
-    &__box {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
-    &__first-line {
-        display: flex;
-    }
-}
 
 // Tablet meria query
 
@@ -350,51 +345,51 @@ article {
             width: 80%;
             margin: 3em auto;
         }
-    }
 
-    .user {
-        &__picture {
-            margin: 2% 2% 0 0;
-            height: 48px; //Se coloca en pixeles porque es una medida fija
-            width: 5em;
-            
-            // Primera imagen de usuario se que muestra en el formulario
-            &1 {
-                margin-top: 7em;
-                margin-right: 0;
-            }
-
-
-            // Imágenes de usuario que se muestran en el historial de comentarios
-            &2 {
+        &__user {
+            &__picture {
                 margin: 2% 2% 0 0;
-                width: 3.6em;
+                height: 48px; //Se coloca en pixeles porque es una medida fija
+                width: 5em;
+                
+                // Primera imagen de usuario se que muestra en el formulario
+                &1 {
+                    margin-top: 7em;
+                    margin-right: 0;
+                }
+    
+    
+                // Imágenes de usuario que se muestran en el historial de comentarios
+                &2 {
+                    margin: 2% 2% 0 0;
+                    width: 3.6em;
+                }
+            }
+    
+            &__name {
+                font-size: 1.6em;
+                line-height: 0.2em;
             }
         }
-
-        &__name {
-            font-size: 1.6em;
-            line-height: 0.2em;
+    
+        &__form {
+            width: 83%;
+    
+            &__comment {
+                height: 3em;
+            }
+    
+            &__button {
+                margin-right: 11%;
+                width: 20%;
+            }
         }
-    }
-
-    .form {
-        width: 83%;
-
+    
         &__comment {
-            height: 3em;
-        }
-
-        &__button {
-            margin-right: 11%;
-            width: 20%;
-        }
-    }
-
-    .comment {
-        &__container {
-            margin: 0 auto;
-            width: 80%;
+            &__container {
+                margin: 0 auto;
+                width: 80%;
+            }
         }
     }
 }
@@ -402,7 +397,6 @@ article {
 // Desktop media query
 
 @media(min-width:1280px){ 
-
     @include desktop-global;
 
     .header {
@@ -453,57 +447,57 @@ article {
         &__new-comment {
             justify-content: center;
         }
-    }
 
-    .form {
-        width: 43em;
-        justify-content: center;
-
-        &__input {
-            width: 25em;
+        &__form {
+            width: 43em;
+            justify-content: center;
+    
+            &__input {
+                width: 25em;
+            }
+    
+            &__button {
+                margin: 0px 33%;
+                height: 3em;
+                width: 11em;
+            }
+    
+            &__name {
+                height: 2em;
+            }
+    
+            &__comment {
+                height: 6em;
+            }
         }
-
-        &__button {
-            margin: 0px 33%;
-            height: 3em;
-            width: 11em;
-        }
-
-        &__name {
-            height: 2em;
+    
+        &__user__picture {
+            margin-top: 6em;
         }
 
         &__comment {
-            height: 6em;
+            &__container {
+                width: 53em;
+                margin-bottom: 2%;
+    
+                & hr {
+                    margin: 2% 0;
+                    width: 50em;
+                }
+    
+                & p {
+                    margin-top: 1em;
+                }
+            }
+    
+            &__box {
+                width: 46em;
+            }
         }
-    }
-
-    .user__picture {
-        margin-top: 6em;
     }
 
     .line {
         margin: 2% 27%;
         width: 48em;
-    }
-
-    .comment {
-        &__container {
-            width: 53em;
-            margin-bottom: 2%;
-
-            & hr {
-                margin: 2% 0;
-                width: 50em;
-            }
-
-            & p {
-                margin-top: 1em;
-            }
-        }
-
-        &__box {
-            width: 46em;
-        }
     }
 }

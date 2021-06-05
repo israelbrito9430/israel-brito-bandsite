@@ -81,14 +81,14 @@ html {
             background-color: $secondary-color-1;
         }
     }
+
+    &__groups--desktop {
+        display: none;
+    }
 }
 
 .line {
     @include line;
-}
-
-.footer {
-    margin-top: 5%;
 }
 
 // Tablet media query
@@ -105,7 +105,6 @@ html {
         &__text{
             margin: 2% 0 0 5%;
             height: 48em;
-
         }
         
         &__title {
@@ -121,11 +120,11 @@ html {
         &__overlay {
             height: 48em;
         }
-    }
-
-    iframe {
-        height: 130px;
-        width: 41em;
+        
+        &__iframe {
+            height: 130px;
+            width: 41em;
+        }
     }
 
     .shows {
@@ -146,6 +145,14 @@ html {
             height: 10%;
             display: inline-flex;
             align-items: baseline;
+
+            &--desktop {
+                display: inline-flex;
+            }
+        
+            &--mobile {
+                display: none;
+            }
         }
 
         &__button {
@@ -158,23 +165,19 @@ html {
         }
 
         &__titles {
-            display: none;
+            margin: 0 1% 1% 0;
+            width: 14em;
         }
     }
 
     .line {
         margin: 1%;
     }
-
-    .footer__logo {
-        margin-top: 4%;
-    }
 }
 
 // Desktop media query
 
 @media(min-width:1280px){ 
-
     @include desktop-global;
 
     .header {
@@ -193,7 +196,7 @@ html {
         &__title {
             margin-top: 4%;
             
-            &-2 {
+            &--2 {
                 width: 7em;
             }
         }
@@ -244,22 +247,5 @@ html {
     .line {
         margin: 2%;
         width: 85%;
-    }
-
-    .footer {
-        margin: 0;
-        padding-left: 8em;
-
-        &__text {
-            width: 63%;
-        }
-
-        &__title {
-            margin: 0px 8% 0 0
-        }
-
-        &__logo {
-            left: 73em;
-        }
     }
 }
