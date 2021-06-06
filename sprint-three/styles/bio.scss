@@ -138,7 +138,7 @@ article {
             color: $primary-color-2; // color: $secondary-color-2; Este es el color según la guía, pero se utiliza el color primario para dar mayor proximidad al mockup
         }
             
-        &__item-2 {
+        &__item--2 {
             margin-top: 2em;
         }
     
@@ -353,14 +353,14 @@ article {
                 width: 5em;
                 
                 // Primera imagen de usuario se que muestra en el formulario
-                &1 {
+                &--1 {
                     margin-top: 7em;
                     margin-right: 0;
                 }
     
     
                 // Imágenes de usuario que se muestran en el historial de comentarios
-                &2 {
+                &--2 {
                     margin: 2% 2% 0 0;
                     width: 3.6em;
                 }
