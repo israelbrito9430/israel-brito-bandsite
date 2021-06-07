@@ -1,85 +1,86 @@
 @font-face {
-  font-family: "page-header";
+font-family: "page-header";
+src: url(../../assets/Font/AvenirNextLTPro-Bold.otf) format("openType");
+font-weight: 700;
+}
+
+
+@font-face {
+  font-family: "subheader";
+  src: url(../../assets/Font/AvenirNextLTPro-Demi.otf) format("openType");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "body";
+  src: url(../../assets/Font/AvenirNextLTPro-Regular.otf) format("openType");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "button";
   src: url(../../assets/Font/AvenirNextLTPro-Bold.otf) format("openType");
   font-weight: 700;
-  }
-  
-  @font-face {
-    font-family: "subheader";
-    src: url(../../assets/Font/AvenirNextLTPro-Demi.otf) format("openType");
-    font-weight: 600;
-  }
-  
-  @font-face {
-    font-family: "body";
-    src: url(../../assets/Font/AvenirNextLTPro-Regular.otf) format("openType");
-    font-weight: 400;
-  }
-  
-  @font-face {
-    font-family: "button";
-    src: url(../../assets/Font/AvenirNextLTPro-Bold.otf) format("openType");
-    font-weight: 700;
-    line-height: 2em;
-  }
-  
-  $tablet-width: 768px;
-  
-  @mixin mobile-fonts {
-    @media (min-width: 320px) and (max-width: #{$tablet-width - 1px}) {
-      @content;
-      h1, h2 {
-        font-size: 2.4em;
-        line-height: 3.2em;
-        font-family: "page-header";
-      }
-      h3 {
-        font-size: 1.4em;
-        font-family: "subheader";
-      }
-      p, span {
-        font-size: 1.3em;
-        line-height: 1.8em;
-        font-family: "body";
-      }
-      button, label {
-        font-size: 1em;
-        font-family: "button";
-      }
+  line-height: 2em;
+}
+
+$tablet-width: 768px;
+
+@mixin mobile-fonts {
+  @media (min-width: 320px) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+    h1, h2 {
+      font-size: 2.4em;
+      line-height: 3.2em;
+      font-family: "page-header";
+    }
+    h3 {
+      font-size: 1.4em;
+      font-family: "subheader";
+    }
+    p, span {
+      font-size: 1.3em;
+      line-height: 1.8em;
+      font-family: "body";
+    }
+    button, label {
+      font-size: 1em;
+      font-family: "button";
     }
   }
-  
-  @mixin tablet-desktop-fonts {
-    @media (min-width: #{$tablet-width}) {
-      @content;
-      h1 {
-        font-size: 6em;
-        line-height: 6.8em;
-        font-family: "page-header";
-      }
-      h2 {
-        font-size: 3.6em;
-        line-height: 4.4em;
-        font-family: "page-header";
-      }
-      h3 {
-        font-size: 2.4em;
-        line-height: 3.2em;
-        font-family: "subheader";
-      }
-      p {
-        font-size: 1.4em;
-        line-height: 2.2em;
-        font-family: "body";
-      }
-      footer, span {
-        font-size: 1.4em;
-        line-height: 2em;
-        font-family: "body";
-      }
-      button, label {
-        font-size: 1.2em;
-        font-family: "button";
-      }
+}
+
+@mixin tablet-desktop-fonts {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+    h1 {
+      font-size: 6em;
+      line-height: 6.8em;
+      font-family: "page-header";
+    }
+    h2 {
+      font-size: 3.6em;
+      line-height: 4.4em;
+      font-family: "page-header";
+    }
+    h3 {
+      font-size: 2.4em;
+      line-height: 3.2em;
+      font-family: "subheader";
+    }
+    p {
+      font-size: 1.4em;
+      line-height: 2.2em;
+      font-family: "body";
+    }
+    footer, span {
+      font-size: 1.4em;
+      line-height: 2em;
+      font-family: "body";
+    }
+    button, label {
+      font-size: 1.2em;
+      font-family: "button";
     }
   }
+}

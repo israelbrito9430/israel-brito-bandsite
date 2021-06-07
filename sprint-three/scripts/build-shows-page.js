@@ -2,6 +2,7 @@ const showsList = document.querySelector(".shows__list");
 
 const apiUrl = 'https://project-1-api.herokuapp.com';
 
+
 //function to get apikey
 const apiKey = () => {
   axios
@@ -41,7 +42,7 @@ function onLoad(event) {
 //function to add shows titles (for tablet & desktop).
 function addShowsLabels() {
   const labelsGroup = document.createElement("div");
-  labelsGroup.className = "shows_group shows_group--desktop";
+  labelsGroup.className = "shows__group shows__group--desktop";
   labelsGroup.appendChild(createShowTitleElement("Date"));
   labelsGroup.appendChild(createShowTitleElement("Venue"));
   labelsGroup.appendChild(createShowTitleElement("Location"));

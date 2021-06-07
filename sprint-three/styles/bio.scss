@@ -9,6 +9,10 @@ html {
     @include mobile-fonts;
 }
 
+.logo__link {
+    margin: 4% auto; // Centra el logo de la parte superior y que corresponde a mobile
+}
+
 // Styles are being applied directly from tags
 
 article {
@@ -61,7 +65,6 @@ article {
     }
 
     &__image{
-        height: 15em;
         width: 100%;
     }
 
@@ -146,7 +149,6 @@ article {
             font-size: 1.3em; // Aumento el valor en comparación a la guía para dar proximidad al mockup
             margin-top: 4px;
             padding: 0.7em; // Según la guía es 1.2em, se cambia por similitud al mockup
-            //height: inherit;
             //min-height: 3.6em; No se aplica para lograr similitud al mockup
             width: 60vw;
             border: 1px solid $secondary-color-2;
@@ -169,7 +171,7 @@ article {
     
         &__button {
             margin-right: 3%;
-            width: 74%;
+            width: 100%;
             align-self: flex-end;
             @include button;
     
@@ -180,61 +182,87 @@ article {
     
         &__input {
             outline-color: $primary-color-1;
-            }
+        }  
+    }      
+
+    &__comments {
+        &__box {
+        display: flex;
         }
 
-        &__comment__box {
+        &__mini-container {
             display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        
-        &__user {
-            &__picture {
-                margin: 14% 5% 0 0;
-                height: 3.6em;
-                width: 4em;
-                border-radius: 50%;
-                background-color: $secondary-color-2;
-            }
-        
-            &__form {
-                width: 90%;
-            }
-        
-            &__info {
-                margin: 0;
-                width: 98%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-        
-            &__name {
-                margin: 1% 0 0.2em 0;
-                width: fit-content;
-            }
-        
-            &__date {
-                margin-bottom: 0.2em;
-                width: fit-content;
-                color: $primary-color-2;
-            }
-        
-            &__comment {
-                line-height: 1.5em; //Se modifica por mockup
-            }
-        
-            &__box {
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-            }
-        
-            &__first-line {
-                display: flex;
-            }
-        }
-}
+    }
+    
+    &__user {
+        &__picture {
+            margin: 14% 5% 0 0;
+            height: 3.6em;
+            width: 4em;
+            border-radius: 50%;
+            background-color: $secondary-color-2;
 
+            &--2 {
+                margin: 4% 5% 0 0;
+            }
+        }
+    
+        &__form {
+            width: 90%;
+        }
+    
+        &__info {
+            margin: 0;
+            width: 98%;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+    
+        &__name {
+            margin: 1% 0 0.2em 0;
+            width: fit-content;
+        }
+    
+        &__date {
+            margin-bottom: 0.2em;
+            width: fit-content;
+            color: $primary-color-2;
+        }
+    
+        &__comment {
+            line-height: 1.5em; //Se modifica por mockup
+        }
+    
+        &__box {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__likes {
+            top: 0px;
+            right: 1.5%;
+            height: 3em;
+            width: 3em;
+            cursor: pointer;
+
+            &--counter {
+                margin-left: 2%;
+            }
+        }
+    }
+
+    &__button--remove {
+        margin-right: 15%;
+        width: 40%;
+        @include button;
+        align-self: center;
+    }
+}
 
 .line {
     @include line;
@@ -268,8 +296,8 @@ article {
 
     .section1{
         &__column {
-            width: 80%;
             margin: 0 auto;
+            width: 87%;
         }
 
         &__image {
@@ -306,11 +334,13 @@ article {
     }
 
     .section3 {
+        margin-top: 0;
         @include padding-top(768px);
         padding-bottom: 5.6em;
         
         &__title {
             margin: 0 3%;
+            padding-top: 0;
             height: inherit;
         }
         
@@ -318,7 +348,6 @@ article {
             margin: 0 auto;
             text-align: center;
             @include padding(768px);
-
         }
         
         &__img {
@@ -341,14 +370,9 @@ article {
             justify-content: flex-end;
         }
 
-        & hr:first-child {
-            width: 80%;
-            margin: 3em auto;
-        }
-
         &__user {
             &__picture {
-                margin: 2% 2% 0 0;
+                margin: 11% -1% 0 0;
                 height: 48px; //Se coloca en pixeles porque es una medida fija
                 width: 5em;
                 
@@ -370,6 +394,10 @@ article {
                 font-size: 1.6em;
                 line-height: 0.2em;
             }
+
+            &__comment {
+                margin-top: 0;
+            }
         }
     
         &__form {
@@ -380,16 +408,31 @@ article {
             }
     
             &__button {
-                margin-right: 11%;
-                width: 20%;
+                margin-right: 0;
+                width: 30%;
+            }
+
+            &__item--2 {
+                display: flex;
+                flex-direction: column;
             }
         }
     
-        &__comment {
+        &__comments {
             &__container {
                 margin: 0 auto;
                 width: 80%;
             }
+        }
+    }
+
+    .line {
+        margin: 3em auto;
+        width: 100%;
+        align-self: center;
+
+        &--first {
+            width: 78%;
         }
     }
 }
@@ -406,7 +449,7 @@ article {
         }
 
         &__title {
-            margin: 4% 9%;
+            margin: 8% 9%;
         }
     }
 
@@ -444,6 +487,10 @@ article {
         display: flex;
         justify-content: center;
 
+        &__title {
+            padding: 5% 0 0 13%;
+        }
+
         &__new-comment {
             justify-content: center;
         }
@@ -457,7 +504,7 @@ article {
             }
     
             &__button {
-                margin: 0px 33%;
+                margin: 1em 0;
                 height: 3em;
                 width: 11em;
             }
@@ -475,7 +522,7 @@ article {
             margin-top: 6em;
         }
 
-        &__comment {
+        &__comments {
             &__container {
                 width: 53em;
                 margin-bottom: 2%;

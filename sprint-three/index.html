@@ -17,9 +17,9 @@
             <a class="logo__link" href="index.html"><img class="logo" src="./assets/Logo/Logo-bandsite.svg"
                     alt="Logo-bandsite"></a>
             <div class="nav__options">
-                <h3 class="link--active nav_linkcontainer"><a class="nav_link" href="./index.html">Biography</a>
+                <h3 class="link--active nav__link__container"><a class="nav__link" href="./index.html">Biography</a>
                 </h3>
-                <h3 class="link--inactive nav_linkcontainer"> <a class="nav_link"
+                <h3 class="link--inactive nav__link__container"> <a class="nav__link"
                         href="../sprint-three/pages/shows.html">Shows</a>
                 </h3>
             </div>
@@ -78,13 +78,11 @@
             </article>
             <article class="section4">
                 <h2 class="section4__title">Join the Conversation</h2>
-
                 <div class="section4__new-comment">
                     <img class="section4__user__picture user__picture--1" src="./assets/Images/Mohan-muruge.jpg"
                         alt="User Picture">
                     <!--FORM-->
                     <form id="form" class="section4__form" action="#">
-
                         <ul class="section4__form__list">
                             <li>
                                 <label class="section4__form__label">NAME <input required="true" name="user"
@@ -95,14 +93,13 @@
                                 <label class="section4__form__label">COMMENT<textarea
                                         class="section4__form__input section4__form__comment" required="true"
                                         name="commentText" placeholder="Add a new comment"></textarea></label>
-
                                 <button class="section4__form__button">COMMENT</button>
                             </li>
                         </ul>
                     </form>
                 </div>
-                <hr class="line">
-                <div id="commentList" class="section4__comment__container">
+                <hr class="line line--first">
+                <div id="commentList" class="section4__comments__container">
                 </div>
             </article>
         </section>

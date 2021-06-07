@@ -1,4 +1,3 @@
-
 //Sprint 3
 
 console.log("Still alive");
@@ -12,159 +11,166 @@ commentForm.addEventListener("submit", handleSubmit);
 
 //function to get apikey
 const apiKey = () => {
-    axios
-        .get(`${apiUrl}/register`)
-        .then((response) => {
-            const apiKey = response.data.api_key
-            console.log(apiKey);
-        })
-        .catch((error) => console.log('error getting apikey'));
+  axios
+    .get(`${apiUrl}/register`)
+    .then((response) => {
+      const apiKey = response.data.api_key
+      console.log(apiKey);
+    })
+    .catch((error) => console.log('error getting apikey'));
 };
 
 //function to get comments
 const getComments = () => {
-    axios
-        .get(`${apiUrl}/comments?api_key=${apiKey}`)
-        .then((response) => {
-            const commentsArray = response.data;
-            commentsArray.forEach((comment) => {
-                addComment(comment);
-            });
-        })
-        .catch((error) => console.log('error getting data comments:' + error));
+  axios
+    .get(`${apiUrl}/comments?api_key=${apiKey}`)
+    .then((response) => {
+      const commentsArray = response.data;
+      commentsArray.forEach((comment) => {
+        addComment(comment);
+      });
+    })
+    .catch((error) => console.log('error getting data comments:' + error));
 };
 
 //function to create each comment
 function addComment(comment) {
-    // create new elements
-    const container = document.createElement('div');
-    container.className = "section4_comment_box";
-    container.id = comment.id;
-    const image = document.createElement('p');
-    image.className = "section4_userpicture section4user_picture2";
+  // create new elements
+  const container = document.createElement('div');
+  container.className = "section4__comments__box";
 
-    const userForm = document.createElement('div');
-    userForm.className = "section4_user_form";
+  const image = document.createElement('p');
+  image.className = "section4__user__picture section4__user__picture--2";
 
-    const userInfo = document.createElement('div');
-    userInfo.className = "section4_user_info";
+  const userForm = document.createElement('div');
+  userForm.className = "section4__user__form";
 
-    const userName = document.createElement('h3');
-    userName.className = "section4_user_name";
-    userName.innerText = comment.name;
+  const userInfo = document.createElement('div');
+  userInfo.className = "section4__user__info";
 
-    const date = new Date(comment.timestamp);
-    const userDates = document.createElement('p');
-    userDates.className = "section4_user_date";
-    userDates.innerText = date.toLocaleDateString();
+  const userName = document.createElement('h3');
+  userName.className = "section4__user__name";
+  userName.innerText = comment.name;
 
-    userInfo.appendChild(userName);
-    userInfo.appendChild(userDates);
-    userForm.appendChild(userInfo);
+  const date = new Date(comment.timestamp);
+  const userDates = document.createElement('p');
+  userDates.className = "section4__user__date";
+  userDates.innerText = date.toLocaleDateString();
 
-    const userComment = document.createElement('p');
-    userComment.className = "section4_user_comment";
-    userComment.innerText = comment.comment;
+  userInfo.appendChild(userName);
+  userInfo.appendChild(userDates);
+  userForm.appendChild(userInfo);
 
-    userForm.appendChild(userComment);
+  const userComment = document.createElement('p');
+  userComment.className = "section4__user__comment";
+  userComment.innerText = comment.comment;
 
-    container.appendChild(image);
-    container.appendChild(userForm);
+  userForm.appendChild(userComment);
 
-    const commentLike = document.createElement('a');
-    commentLike.className = "user__likes";
-    commentLike.innerText = `${comment.likes} likes`;
-    commentLike.addEventListener("click", (event) => {
-        likeComment(event.target.parentNode.id);
-    });
-    container.appendChild(commentLike);
+  container.appendChild(image);
+  container.appendChild(userForm);
 
-    const commentDelete = document.createElement('button');
-    commentDelete.innerText = "Remove";
-    commentDelete.addEventListener("click", (event) => {
-        removeComment(event.target.parentNode.id);
-    });
-    container.appendChild(commentDelete);
+  const commentWrapper = document.createElement('div');
+  commentWrapper.className = "section4__comments__sub-container";
+  commentWrapper.id = comment.id;
 
-    /*    const listEl = document.createElement('li');
-        const userCommentEl = document.createElement('p');
-        const userNameEl = document.createElement('h3');
-        const userLikeEl = document.createElement('p');
-        //attach the data to the elements
-        userNameEl.innerText = name;
-        userCommentEl.innerText = comment;
-        userLikeEl.innerText = likes;
-        //append the elements to their respective parents
-        listEl.appendChild(userNameEl);
-        listEl.appendChild(userCommentEl);
-        listEl.appendChild(userLikeEl);
-        commentList.appendChild(listEl);*/
-    newcomments.insertBefore(container, newcomments.firstChild);
+  const commentWrapper2 = document.createElement('div');
+  commentWrapper2.className = "section4__comments__mini-container";
 
-    const divider = document.createElement('hr');
-    divider.className = "line";
-    container.appendChild(divider);
+  const commentLike = document.createElement('img');
+  commentLike.className = "section4__user__likes";
+  commentLike.setAttribute("src", "assets/Icons/SVG/icon-like.svg");
+
+  const likeCounter = document.createElement("p");
+  likeCounter.className = "section4__user__likes--counter";
+  likeCounter.innerText = `${comment.likes} Likes`;
+
+  const commentDelete = document.createElement('button');
+  commentDelete.innerText = "Remove";
+  commentDelete.className = "section4__button--remove";
+  commentDelete.addEventListener("click", (event) => {
+    removeComment(event.target.parentNode.parentNode.id);
+  });
+
+  commentLike.addEventListener("click", (event) => {
+    likeComment(event.target.parentNode.parentNode.id);
+  });
+
+  const divider = document.createElement('hr');
+  divider.className = "line";
+  commentWrapper.appendChild(container);
+  commentWrapper.appendChild(commentWrapper2);
+  commentWrapper2.appendChild(commentDelete);
+  commentWrapper2.appendChild(commentLike);
+  commentWrapper2.appendChild(likeCounter);
+  commentWrapper.appendChild(divider);
+
+  newcomments.insertBefore(commentWrapper, newcomments.firstChild);
 }
 
 //submit the form and add the comment to the list
 function handleSubmit(event) {
-    event.preventDefault();
-    const user = event.target.user.value;
-    const commentText = event.target.commentText.value;
+  event.preventDefault();
+  const user = event.target.user.value;
+  const commentText = event.target.commentText.value;
 
-    const newComment = {
-        name: user, // => name: user
-        comment: commentText // => commentText: commentText
-    };
-    axios
-        .post(`${apiUrl}/comments?api_key=${apiKey}`, newComment, {
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            }
-        )
-        .then((response) => {
-            console.log('HTTP STATUS CODE: ', response.status);
+  const newComment = {
+    name: user, // => name: user
+    comment: commentText // => commentText: commentText
+  };
+  axios
+    .post(`${apiUrl}/comments?api_key=${apiKey}`, newComment, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+    )
+    .then((response) => {
+      console.log('HTTP STATUS CODE: ', response.status);
 
-            //after comment has posted, getComments again.
-            getComments();
-        })
-        .catch((error) => console.log(error));
+      //after comment has posted, getComments again.
+      getComments();
+    })
+    .catch((error) => console.log(error));
 
-    //reset the form
-    commentForm.reset();
+  //reset the form
+  commentForm.reset();
 }
 
 //Like implementation for comments.
 function likeComment(id) {
-    if (id !== undefined) {
-        axios
-            .put(`${apiUrl}/comments/${id}/like?api_key=${apiKey}`)
-            .then((response) => {
-                if (response.status === 200) {
-                    document.getElementById(id).querySelector(".user__likes").innerText = response.data.likes + " likes";
-                } else {
-                    console.log(`Error trying to like commentId: ${id} status:${response.status} - ${response}`);
-                }
-            })
-            .catch((error) => console.log(`error for like comment ${id}:` + error));
-    }
+  if (id === undefined || id === "") {
+    console.log("comment id to like not defined");
+    return;
+  }
+  axios
+      .put(`${apiUrl}/comments/${id}/like?api_key=${apiKey}`)
+      .then((response) => {
+        if (response.status === 200) {
+          document.getElementById(id).querySelector(".section4__user__likes--counter").innerText = response.data.likes + " Likes";
+        } else {
+          console.log(`Error trying to like commentId: ${id} status:${response.status} - ${response}`);
+        }
+      })
+      .catch((error) => console.log(`error for like comment ${id}:` + error));
 }
 
 //Remove comment.
 function removeComment(id) {
-    if (id !== undefined) {
-        axios
-            .delete(`${apiUrl}/comments/${id}?api_key=${apiKey}`)
-            .then((response) => {
-                if (response.status === 200) {
-                    document.getElementById(id).remove();
-                } else {
-                    console.log(`Error removing commentId: ${id} status:${response.status} - ${response}`);
-                }
-            })
-            .catch((error) => console.log(`error for like comment ${id}:` + error));
-    }
+  if (id === undefined || id === "") {
+    console.log("comment id to remove not defined");
+    return;
+  }
+  axios
+    .delete(`${apiUrl}/comments/${id}?api_key=${apiKey}`)
+    .then((response) => {
+      if (response.status === 200) {
+        document.getElementById(id).remove();
+      } else {
+        console.log(`Error removing commentId: ${id} status:${response.status} - ${response}`);
+      }
+    })
+    .catch((error) => console.log(`error for like comment ${id}:` + error));
 }
 
 //initial call to get comments  when first loaded.

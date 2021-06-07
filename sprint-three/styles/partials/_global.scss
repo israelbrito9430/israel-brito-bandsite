@@ -3,10 +3,6 @@
 
 .logo{
   @include logo-size;
-  
-  &__link {
-    margin: 4%;
-  }
 }
 
 .nav {
@@ -16,7 +12,11 @@
   display: flex;
   flex-direction: column;
   background-color: $primary-color-1;
-  text-align: center;
+
+  &__options {
+    display: flex;
+    justify-content: space-around;
+  }
 
   &__link {
     @include link-style;
@@ -32,11 +32,6 @@
       width: 50vw;
       text-align: center;
     }
-  }
-  
-  &__options {
-      display: flex;
-      justify-content: space-around;
   }
 }
 
@@ -67,7 +62,7 @@
   }
 
   &__copyright {
-    margin: 4% 0 1% 0;
+    margin: 0 0 1% 0;
   }
 
   &--strong-text{
@@ -79,6 +74,10 @@
     width: 40%;
     display: flex;
     justify-content: space-between;
+  }
+
+  &__text {
+    margin-bottom: 14%;
   }
 }
 
@@ -123,14 +122,17 @@
       @include tablet-desktop-fonts;
     }
     
+    .logo__link {
+      margin: 4%;
+    }
+
     .nav {
       max-height: 7em;
       align-items: center;
       flex-direction: row;
       
       &__options {
-        margin-left: 2%;
-        width: 20%;
+        width: 30%;
       }
 
       &__link {
@@ -165,6 +167,7 @@
       
       &__text {
         margin-top:2%;
+        margin-bottom: 0;
         padding-bottom: 0;
         display: flex;
         font-size: 0.8em;
@@ -172,7 +175,7 @@
       
       &__logo {
         top: 5.5em;
-        right: 3em;
+        right: 5em;
         position: absolute;
       }
       
@@ -192,9 +195,9 @@
       }
 
       &__social-network {
-        width: 50%;
+        width: 42%;
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
         align-items: flex-end;
       }
     }
@@ -214,11 +217,27 @@
       @include padding-top(1280);
     }
 
+    .logo__link {
+      margin-left: 10%;
+    }
+
+    .nav__options {
+      width: 18%;
+    }
+
     .footer {
       padding: 4% 4% 2% 4%;
 
       &__icons {
-        margin: 0 0 0 15%;
+        width: 28%;
+      }
+
+      &__social-network {
+        width: 31%;
+      }
+
+      &__logo {
+        right: 23em;
       }
     }
   }
